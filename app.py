@@ -12,13 +12,17 @@ load_dotenv()
 
 # Configuração da API da Groq
 api_key = os.getenv("GROQ_API_KEY")
+
 client = ChatGroq(api_key=api_key, model="meta-llama/llama-4-scout-17b-16e-instruct")
+
 
 # Configuração da memória
 MEMORIA = ConversationBufferWindowMemory(k=5)  # Mantém as últimas 5 mensagens
 
 # Carregamento do arquivo CSV previamente carregado
+
 CAMINHO_CSV = "movimentacoes.csv"  # Substitua pelo caminho do seu arquivo CSV
+
 def carrega_csv(caminho):
     loader = CSVLoader(caminho)
     lista_documentos = loader.load()
